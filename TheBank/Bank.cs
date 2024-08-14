@@ -14,5 +14,13 @@
 
             return accountList[^1];
         }
+
+        public decimal Deposit(string depositAmount)
+        {
+            if (decimal.TryParse(depositAmount, out decimal result))
+                accountList[^1].Balance += result;
+
+            return accountList[^1].Balance;
+        }
     }
 }

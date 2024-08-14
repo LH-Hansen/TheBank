@@ -9,4 +9,9 @@ Account account = bank.CreateAccount(Console.ReadLine());
 
 Console.WriteLine("Konto oprettet for {0}, med saldoen {1:c}", account.Name, account.Balance);
 
+Console.Write("Indsæt: ");
+Console.WriteLine("Saldo for konto: {0:c}", bank.Deposit(Console.ReadLine()));
+
+
+
 Console.ReadLine();
