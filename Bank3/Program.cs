@@ -2,55 +2,62 @@
 
 Bank bank = new Bank();
 
-while (true)
-{
-    switch (Menu(bank.BankName))
+Console.Write("Welcome to {0} - Bank 2\n" +
+              "Select account: ", bank.BankName);
+
+if (int.TryParse(Console.ReadLine(), out int accountNumber))
+
+    while (true)
     {
-        case "m":
-            Menu(bank.BankName);
-            break;
+        Console.Clear();
 
-        case "c":
-            Console.Write("Navn: ");
+        switch (Menu(bank.BankName))
+        {
+            case "m":
+                Menu(bank.BankName);
+                break;
 
-            Account account = bank.CreateAccount(Console.ReadLine());
+            case "c":
+                Console.Write("Navn: ");
 
-            Console.WriteLine("Account created for {0}, with a balance of {1:c}", account.Name, account.Balance);
-            break;
+                Account account = bank.CreateAccount(Console.ReadLine());
 
-        case "d":
-            Console.Write("Deposit: ");
-            Console.WriteLine("Balance for account: {0:c}", bank.Deposit(Console.ReadLine()));
-            break;
+                Console.WriteLine("Account {0} created for {1}, with a balance of {2:c}", account.Number, account.Name, account.Balance);
+                break;
 
-        case "w":
-            Console.Write("Withdraw: ");
-            Console.WriteLine("Balance for account: {0:c}", bank.Withdraw(Console.ReadLine()));
-            break;
+            case "d":
+                Console.Write("Deposit: ");
+                Console.WriteLine("Balance for account: {0:c}", bank.Deposit(Console.ReadLine(), accountNumber));
+                break;
 
-        case "b":
-            Console.WriteLine("Account balance: {0:c}", bank.Balance());
-            break;
+            case "w":
+                Console.Write("Withdraw: ");
+                Console.WriteLine("Balance for account: {0:c}", bank.Withdraw(Console.ReadLine(), accountNumber));
+                break;
 
-        case "i":
-            Console.WriteLine(bank.BankName);
-            break;
+            case "b":
+                Console.WriteLine("Account balance: {0:c}", bank.Balance(accountNumber));
+                break;
 
-        case "e":
+            case "i":
+                Console.WriteLine(bank.BankName);
+                break;
 
-            break;
+            case "e":
 
-        default:
-            Console.Write("An error has occurred");
-            break;
+                break;
+
+            default:
+                Console.Write("An error has occurred");
+                break;
+        }
     }
-
-    Console.Read();
-}
 
 static string Menu(string bankName)
 {
-    Console.WriteLine("Welcome to {0} - Bank 2", bankName);
+    GC.Collect();
+    Console.Clear();
+
     Console.WriteLine("m = menu\n" +
                       "c = create account\n" +
                       "d = deposit\n" +

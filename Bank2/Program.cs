@@ -50,7 +50,7 @@ static string Menu(string bankName)
 {
     GC.Collect();
     Console.Clear();
-    Console.WriteLine("Welcome to {0} - Bank 2", bankName);
+
     Console.WriteLine("m = menu\n" +
                       "c = create account\n" +
                       "d = deposit\n" +

@@ -10,30 +10,43 @@
 
         public Account CreateAccount(string name)
         {
-            accountList.Add(new Account(name));
+            accountList.Add(new Account(name, accountList.Count + 1));
 
             return accountList[^1];
         }
 
-        public decimal Deposit(string depositAmount)
+        public decimal Deposit(string depositAmount, int accountNumber)
         {
-            if (decimal.TryParse(depositAmount, out decimal result))
-                accountList[^1].Balance += result;
-
-            return accountList[^1].Balance;
+            foreach (Account account in accountList)
+            {
+                if (decimal.TryParse(depositAmount, out decimal result) && account.Number == accountNumber)
+                    account.Balance += result;
+                return account.Balance;
+            }
+            return 0;
         }
 
-        public decimal Withdraw(string depositAmount)
+        public decimal Withdraw(string depositAmount, int accountNumber)
         {
-            if (decimal.TryParse(depositAmount, out decimal result))
-                accountList[^1].Balance -= result;
+            foreach (Account account in accountList)
+            {
+                if (decimal.TryParse(depositAmount, out decimal result) && account.Number == accountNumber)
+                    account.Balance -= result;
 
-            return accountList[^1].Balance;
+                return account.Balance;
+            }
+            return 0;
         }
 
-        public decimal Balance()
+        public decimal Balance(int accountNumber)
         {
-            return accountList[^1].Balance;
+            foreach (Account account in accountList)
+            {
+                if (account.Number == accountNumber)
+                    return account.Balance;
+            }
+
+            return 0;
         }
     }
 }

@@ -10,7 +10,7 @@
 
         public Account CreateAccount(string name)
         {
-            accountList.Add(new Account(name));
+            accountList.Add(new Account(name, accountList.Count + 1));
 
             return accountList[^1];
         }
