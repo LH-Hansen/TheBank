@@ -2,7 +2,7 @@
 {
     internal class Bank
     {
-        public string BankName { get; private set; }
+        public string BankName { get; init; }
 
         public Bank() { BankName = "EUC Syd Banken"; }
 
@@ -28,6 +28,11 @@
             if (decimal.TryParse(depositAmount, out decimal result))
                 accountList[^1].Balance -= result;
 
+            return accountList[^1].Balance;
+        }
+
+        public decimal Balance()
+        {
             return accountList[^1].Balance;
         }
     }

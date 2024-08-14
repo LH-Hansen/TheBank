@@ -15,4 +15,6 @@ Console.WriteLine("Saldo for konto: {0:c}", bank.Deposit(Console.ReadLine()));
 Console.Write("Hæv: ");
 Console.WriteLine("Saldo for konto: {0:c}", bank.Withdraw(Console.ReadLine()));
 
+Console.WriteLine("saldo for konto: {0:c}", bank.Balance());
+
 Console.ReadLine();
