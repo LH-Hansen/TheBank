@@ -2,19 +2,62 @@
 
 Bank bank = new Bank();
 
-Console.WriteLine("*** Velkommen til {0} ***", bank.BankName);
-Console.Write("Navn: ");
+while (true)
+{
+    switch (Menu(bank.BankName))
+    {
+        case "m":
+            Menu(bank.BankName);
+            break;
 
-Account account = bank.CreateAccount(Console.ReadLine());
+        case "c":
+            Console.Write("Navn: ");
 
-Console.WriteLine("Konto oprettet for {0}, med saldoen {1:c}", account.Name, account.Balance);
+            Account account = bank.CreateAccount(Console.ReadLine());
 
-Console.Write("Indsæt: ");
-Console.WriteLine("Saldo for konto: {0:c}", bank.Deposit(Console.ReadLine()));
+            Console.WriteLine("Account created for {0}, with a balance of {1:c}", account.Name, account.Balance);
+            break;
 
-Console.Write("Hæv: ");
-Console.WriteLine("Saldo for konto: {0:c}", bank.Withdraw(Console.ReadLine()));
+        case "d":
+            Console.Write("Deposit: ");
+            Console.WriteLine("Balance for account: {0:c}", bank.Deposit(Console.ReadLine()));
+            break;
 
-Console.WriteLine("saldo for konto: {0:c}", bank.Balance());
+        case "w":
+            Console.Write("Withdraw: ");
+            Console.WriteLine("Balance for account: {0:c}", bank.Withdraw(Console.ReadLine()));
+            break;
 
-Console.ReadLine();
+        case "b":
+            Console.WriteLine("Account balance: {0:c}", bank.Balance());
+            break;
+
+        case "i":
+            Console.WriteLine(bank.BankName);
+            break;
+
+        case "e":
+
+            break;
+
+        default:
+            Console.Write("An error has occurred");
+            break;
+    }
+}
+
+static string Menu(string bankName)
+{
+    GC.Collect();
+    Console.Clear();
+    Console.WriteLine("Welcome to {0} - Bank 2", bankName);
+    Console.WriteLine("m = menu\n" +
+                      "c = create account\n" +
+                      "d = deposit\n" +
+                      "w = withdraw\n" +
+                      "b = balance\n" +
+                      "i = show bank\n" +
+                      "e = exit\n");
+
+    return Console.ReadLine().ToLower();
+}
