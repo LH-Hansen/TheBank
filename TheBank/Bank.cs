@@ -4,12 +4,15 @@
     {
         public string BankName { get; private set; }
 
-        public Bank()
-        { BankName = "EUC Syd Banken"; }
+        public Bank() { BankName = "EUC Syd Banken"; }
+
+        List<Account> accountList = new List<Account>();
 
         public Account CreateAccount(string name)
         {
-            return new Account(name);
+            accountList.Add(new Account(name));
+
+            return accountList[^1];
         }
     }
 }
