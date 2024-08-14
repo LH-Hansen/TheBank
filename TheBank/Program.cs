@@ -12,6 +12,7 @@ Console.WriteLine("Konto oprettet for {0}, med saldoen {1:c}", account.Name, acc
 Console.Write("Indsæt: ");
 Console.WriteLine("Saldo for konto: {0:c}", bank.Deposit(Console.ReadLine()));
 
-
+Console.Write("Hæv: ");
+Console.WriteLine("Saldo for konto: {0:c}", bank.Withdraw(Console.ReadLine()));
 
 Console.ReadLine();

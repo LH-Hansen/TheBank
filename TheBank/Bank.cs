@@ -22,5 +22,13 @@
 
             return accountList[^1].Balance;
         }
+
+        public decimal Withdraw(string depositAmount)
+        {
+            if (decimal.TryParse(depositAmount, out decimal result))
+                accountList[^1].Balance -= result;
+
+            return accountList[^1].Balance;
+        }
     }
 }
