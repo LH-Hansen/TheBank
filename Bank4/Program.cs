@@ -13,10 +13,6 @@ while (true)
 {
     switch (Menu(bank.BankName))
     {
-        case "m":
-            Menu(bank.BankName);
-            break;
-
         case "c":
             Console.Write("Navn: ");
 
