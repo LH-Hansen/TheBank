@@ -12,5 +12,12 @@
             Balance = 0;
             Number = number;
         }
+
+        public static decimal IntrestRate { get; set; }
+
+        public void ChargeInterest()
+        {
+            Balance *= (1 + IntrestRate);
+        }
     }
 }

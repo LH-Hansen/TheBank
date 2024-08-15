@@ -48,5 +48,10 @@
 
             return 0;
         }
+
+        public List<Account> ShowAllAccounts()
+        {
+            return accountList;
+        }
     }
 }
