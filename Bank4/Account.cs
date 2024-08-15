@@ -1,6 +1,6 @@
 ﻿namespace TheBank
 {
-    internal class Account
+    internal abstract class Account
     {
         public string Name { get; init; }
         public decimal Balance { get; set; }
@@ -13,11 +13,8 @@
             Number = number;
         }
 
-        public static decimal IntrestRate { get; set; }
+        public string Type { get; set; }
 
-        public void ChargeInterest()
-        {
-            Balance *= (1 + IntrestRate);
-        }
+        public abstract void ChargeInterest();
     }
 }

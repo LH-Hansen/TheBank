@@ -1,4 +1,6 @@
-﻿namespace TheBank
+﻿using Bank4;
+
+namespace TheBank
 {
     internal class Bank
     {
@@ -8,9 +10,27 @@
 
         List<Account> accountList = new List<Account>();
 
-        public Account CreateAccount(string name)
+        public Account CreateAccount(string name, int accountType)
         {
-            accountList.Add(new Account(name, accountList.Count + 1));
+
+            switch (accountType)
+            {
+                case 1:
+                    accountList.Add(new CheckingAccount(name, accountList.Count + 1));
+                    break;
+
+                case 2:
+                    accountList.Add(new SavingsAccount(name, accountList.Count + 1));
+                    break;
+
+                case 3:
+                    accountList.Add(new ConsumerAccount(name, accountList.Count + 1));
+                    break;
+
+                default:
+                    Console.WriteLine("Error try again...");
+                    break;
+            }
 
             return accountList[^1];
         }
@@ -20,8 +40,10 @@
             foreach (Account account in accountList)
             {
                 if (decimal.TryParse(depositAmount, out decimal result) && account.Number == accountNumber)
+                {
                     account.Balance += result;
-                return account.Balance;
+                    return account.Balance;
+                }
             }
             return 0;
         }
@@ -31,9 +53,10 @@
             foreach (Account account in accountList)
             {
                 if (decimal.TryParse(depositAmount, out decimal result) && account.Number == accountNumber)
-                    account.Balance -= result;
-
-                return account.Balance;
+                {
+                    account.Balance += result;
+                    return account.Balance;
+                }
             }
             return 0;
         }
@@ -47,6 +70,14 @@
             }
 
             return 0;
+        }
+
+        public string ChargeInterest()
+        {
+            foreach (Account account in accountList)
+                account.ChargeInterest();
+
+            return "Intrest has been charged";
         }
 
         public List<Account> ShowAllAccounts()
