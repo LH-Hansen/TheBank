@@ -1,7 +1,7 @@
 # TheBank
 
 ### Autor(s)
-LH-Hansen
+LH-Hansen: email@email.com
 
 ## Program description
 This program mimics the functionality of a bank. The program itself contains multible itterations of the same bank, with each bank being more complex than the last.
@@ -23,5 +23,9 @@ Each account now is made with an account number. A specific account can now be s
 *1.0.0*
 Multible accounts can be created. Latest account can deposit & withdraw money to their account and see their total balance.
 
+## Known issues
+*it' perfect*
+
 ##ToDo##
-Change Bank5 structure to incorporate Interfaces and enumerables.
+- Implement overdraft exception
+
