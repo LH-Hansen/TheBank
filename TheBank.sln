@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bank1", "TheBank\Bank1.cspr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bank2", "Bank2\Bank2.csproj", "{5BE93968-95C7-4EA9-8084-B44E9D128151}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank3", "Bank3\Bank3.csproj", "{0CFC07EE-DC0B-4B7C-B317-F055F14C7323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bank3", "Bank3\Bank3.csproj", "{0CFC07EE-DC0B-4B7C-B317-F055F14C7323}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank4", "Bank4\Bank4.csproj", "{66D05EB4-B841-497C-9929-F1718B844551}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank6", "Bank6\Bank6.csproj", "{75E63401-3EF4-4182-9FBE-4C2F6D58FCD3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank5", "Bank5\Bank5.csproj", "{4A411840-EF7F-4B86-BAAF-F4D95483E7E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{66D05EB4-B841-497C-9929-F1718B844551}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66D05EB4-B841-497C-9929-F1718B844551}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66D05EB4-B841-497C-9929-F1718B844551}.Release|Any CPU.Build.0 = Release|Any CPU
-		{75E63401-3EF4-4182-9FBE-4C2F6D58FCD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75E63401-3EF4-4182-9FBE-4C2F6D58FCD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75E63401-3EF4-4182-9FBE-4C2F6D58FCD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75E63401-3EF4-4182-9FBE-4C2F6D58FCD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A411840-EF7F-4B86-BAAF-F4D95483E7E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A411840-EF7F-4B86-BAAF-F4D95483E7E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A411840-EF7F-4B86-BAAF-F4D95483E7E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A411840-EF7F-4B86-BAAF-F4D95483E7E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
