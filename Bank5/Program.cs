@@ -23,9 +23,12 @@ while (true)
 
             name = Console.ReadLine();
 
-            Console.Write("Account type: ");
+            Console.Write("1. Checking\n" +
+                          "2. Consumer\n" +
+                          "3. Savings\n\n" +
+                          "Account type: ");
 
-            if (int.TryParse(Console.ReadLine(), out int accountType))
+            if (AccountType.TryParse(Console.ReadLine(), out AccountType accountType) && !string.IsNullOrEmpty(name))
             {
                 Account newAccount = bank.CreateAccount(name, accountType);
                 Console.WriteLine("Account {0} type {1} created for {2}, with a balance of {3:c}", newAccount.Number, newAccount.Type, newAccount.Name, newAccount.Balance);
@@ -55,8 +58,8 @@ while (true)
             break;
 
         case "a":
-            foreach (var account in bank.ShowAllAccounts())
-                Console.WriteLine("{0}, {1}: {2:c}", account.Number, account.Name, account.Balance);
+            foreach (var account in bank.GetAccountList())
+                Console.WriteLine("{0}, {1} for {2}: {3:c}", account.Number, account.Type.Name.Replace("Account", ""), account.Name, account.Balance);
             break;
 
         default:

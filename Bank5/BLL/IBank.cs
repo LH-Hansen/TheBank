@@ -8,9 +8,8 @@ namespace Repository.Bank5
 
         decimal Balance(int accountNumber);
         string ChargeInterest();
-        Account CreateAccount(string name, int accountType);
+        Account CreateAccount(string name, AccountType accountType);
         decimal Deposit(string depositAmount, int accountNumber);
-        List<Account> ShowAllAccounts();
         decimal Withdraw(string depositAmount, int accountNumber);
         List<AccountListItem> GetAccountList();
     }

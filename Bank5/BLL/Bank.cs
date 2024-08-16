@@ -8,37 +8,31 @@ namespace Repository.Bank5
 
         public Bank() { BankName = "EUC Syd Banken"; }
 
-        List<Account> accountList = new List<Account>();
-        List<AccountListItem> accountListItems = new List<AccountListItem>();
+        private List<Account> _accountList = new List<Account>();
 
-        public Account CreateAccount(string name, int accountType)
+        public Account CreateAccount(string name, AccountType accountType)
         {
-
             switch (accountType)
             {
-                case 1:
-                    accountList.Add(new CheckingAccount(name, accountList.Count + 1));
+                case AccountType.checking:
+                    _accountList.Add(new CheckingAccount(name, _accountList.Count + 1));
                     break;
-
-                case 2:
-                    accountList.Add(new SavingsAccount(name, accountList.Count + 1));
+                case AccountType.consumer:
+                    _accountList.Add(new ConsumerAccount(name, _accountList.Count + 1));
                     break;
-
-                case 3:
-                    accountList.Add(new ConsumerAccount(name, accountList.Count + 1));
+                case AccountType.savings:
+                    _accountList.Add(new SavingsAccount(name, _accountList.Count + 1));
                     break;
-
                 default:
                     Console.WriteLine("Error try again...");
                     break;
             }
-
-            return accountList[^1];
+            return _accountList[^1];
         }
 
         public decimal Deposit(string depositAmount, int accountNumber)
         {
-            foreach (Account account in accountList)
+            foreach (Account account in _accountList)
             {
                 if (decimal.TryParse(depositAmount, out decimal result) && account.Number == accountNumber)
                 {
@@ -51,7 +45,7 @@ namespace Repository.Bank5
 
         public decimal Withdraw(string depositAmount, int accountNumber)
         {
-            foreach (Account account in accountList)
+            foreach (Account account in _accountList)
             {
                 if (decimal.TryParse(depositAmount, out decimal result) && account.Number == accountNumber)
                 {
@@ -64,7 +58,7 @@ namespace Repository.Bank5
 
         public decimal Balance(int accountNumber)
         {
-            foreach (Account account in accountList)
+            foreach (Account account in _accountList)
             {
                 if (account.Number == accountNumber)
                     return account.Balance;
@@ -75,20 +69,23 @@ namespace Repository.Bank5
 
         public string ChargeInterest()
         {
-            foreach (Account account in accountList)
+            foreach (Account account in _accountList)
                 account.ChargeInterest();
 
             return "Intrest has been charged";
         }
 
-        public List<Account> ShowAllAccounts()
+        public List<AccountListItem> GetAccountList()
         {
+            List<AccountListItem> accountList = new List<AccountListItem>();
+
+            foreach (Account account in this._accountList)
+            {
+                accountList.Add(new(account));
+            }
+
             return accountList;
         }
 
-        public List<AccountListItem> GetAccounts()
-        {
-            return accountListItems;
-        }
     }
 }
